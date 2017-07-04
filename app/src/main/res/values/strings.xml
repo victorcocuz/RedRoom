@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RedRoom</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_red_room">RedRoom</string>
+    <string name="fragment_browse">Browse</string>
+    <string name="fragment_collection">Collection</string>
+    <string name="fragment_borrow">Borrow</string>
+    <string name="search">Search</string>
+</resources>
