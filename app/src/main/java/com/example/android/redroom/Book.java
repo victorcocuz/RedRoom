@@ -1,17 +1,14 @@
 package com.example.android.redroom;
-
-import static android.R.attr.name;
-
 /**
  * Created by victo on 7/2/2017.
  */
 
-public class VolumeCard {
+public class Book {
 
     private String title;
     private String author;
 
-    public VolumeCard(String title, String author) {
+    public Book(String title, String author) {
         this.title = title;
         this.author = author;
     }

@@ -1,6 +1,8 @@
 package com.example.android.redroom;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -23,12 +25,13 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCallbacks<List<VolumeCard>>{
+public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCallbacks<List<Book>>{
 
     private static final String LOG_TAG = FragmentBrowse.class.getSimpleName();
     private static final String BOOKS_REQUEST_BASE_URL = "https://www.googleapis.com/books/v1/volumes?q=";
     private static final int EARTHQUAKE_LOADER_ID = 0;
     private RecyclerView.Adapter volumeAdapter;
+    private RecyclerView recyclerView;
     private EditText searchView;
     private String finalURL;
 
@@ -40,20 +43,12 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_browse, container, false);
 
-        ArrayList<VolumeCard> volumes = new ArrayList<>();
-        volumes.add(new VolumeCard("title 1", "author 1"));
-        volumes.add(new VolumeCard("title 2", "author 3"));
-        volumes.add(new VolumeCard("title 3", "author 3"));
-        volumes.add(new VolumeCard("title 4", "author 4"));
-        volumes.add(new VolumeCard("title 5", "author 5"));
-        volumes.add(new VolumeCard("title 6", "author 6"));
-
         //Recycler View
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        volumeAdapter = new VolumeAdapter(volumes);
+        volumeAdapter = new BookAdapter(new ArrayList<Book>());
         recyclerView.setAdapter(volumeAdapter);
 
         //Search editor on enter listener
@@ -63,8 +58,11 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     StringBuilder requestUrl = new StringBuilder(BOOKS_REQUEST_BASE_URL);
                     requestUrl.append(searchView.getText().toString());
+                    requestUrl.append("&maxResults=10");
                     finalURL = requestUrl.toString();
                     Toast.makeText(getActivity(), finalURL, Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(Intent.ACTION_VIEW);
+//                    startActivity(intent.setData(Uri.parse(finalURL)));
                 }
                 return false;
             }
@@ -76,17 +74,17 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
     }
 
     @Override
-    public Loader<List<VolumeCard>> onCreateLoader(int id, Bundle args) {
-        return new VolumeCardLoader(getActivity(), finalURL);
+    public Loader<List<Book>> onCreateLoader(int id, Bundle args) {
+        return new BookLoader(getActivity(), finalURL);
     }
 
     @Override
-    public void onLoadFinished(Loader<List<VolumeCard>> loader, List<VolumeCard> data) {
-        volumeAdapter.addAll(data);
+    public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
+        recyclerView.setAdapter(new BookAdapter(new ArrayList<>(data)));
+        recyclerView.invalidate();
     }
 
     @Override
-    public void onLoaderReset(Loader<List<VolumeCard>> loader) {
-
+    public void onLoaderReset(Loader<List<Book>> loader) {
     }
 }

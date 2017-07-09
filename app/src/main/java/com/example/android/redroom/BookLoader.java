@@ -9,19 +9,24 @@ import java.util.List;
  * Created by victo on 7/4/2017.
  */
 
-public class VolumeCardLoader extends AsyncTaskLoader<List<VolumeCard>> {
+public class BookLoader extends AsyncTaskLoader<List<Book>> {
 
-    public VolumeCardLoader(Context context) {
+    private String url;
+
+    public BookLoader(Context context, String url) {
         super(context);
+        this.url = url;
     }
 
     @Override
     protected void onStartLoading() {
         super.onStartLoading();
+        forceLoad();
     }
 
     @Override
-    public List<VolumeCard> loadInBackground() {
-        return null;
+    public List<Book> loadInBackground() {
+        List<Book> volumes = QueryUtils.extractVolumes(url);
+        return volumes;
     }
 }
