@@ -7,6 +7,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,32 +88,38 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
         switch (loader.getId()) {
             case 0:
-                recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 recyclerViewUser1.invalidate();
+                recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 break;
             case 1:
-                recyclerViewUser2.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 recyclerViewUser2.invalidate();
+                recyclerViewUser2.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 break;
             case 2:
-                recyclerViewUser3.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 recyclerViewUser3.invalidate();
+                recyclerViewUser3.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 break;
         }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
-        switch (loader.getId()) {
-            case 0:
-                recyclerViewUser1.setAdapter(null);
-                break;
-            case 1:
-                recyclerViewUser2.setAdapter(null);
-                break;
-            case 2:
-                recyclerViewUser3.setAdapter(null);
-                break;
-        }
+//        switch (loader.getId()) {
+//            case 0:
+//                Log.e(LOG_TAG, "Cancel 0");
+//                recyclerViewUser1.setAdapter(null);
+//                break;
+//            case 1:
+//                Log.e(LOG_TAG, "Cancel 0");
+//                recyclerViewUser2.setAdapter(null);
+//                break;
+//            case 2:
+//                Log.e(LOG_TAG, "Cancel 0");
+//                recyclerViewUser3.setAdapter(null);
+//                break;
+//        }
+//        recyclerViewUser1.setAdapter(null);
+//        recyclerViewUser2.setAdapter(null);
+//        recyclerViewUser3.setAdapter(null);
     }
 }
