@@ -2,6 +2,8 @@
 <resources>
     <dimen name="menu_image">32dp</dimen>
     <dimen name="menu_container">48dp</dimen>
+    <dimen name="large_container">60dp</dimen>
+    <dimen name="xlarge_container">200dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_large">16dp</dimen>
