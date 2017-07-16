@@ -46,8 +46,8 @@ class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
                 String webReaderLink = books.get(position).getBookWebReaderLink();
                 String textSnippet = books.get(position).getBookTextSnippet();
                 String description = books.get(position).getBookDescription();
-                double ratingAverage = books.get(position).getBookRatingAverage();
-                int ratingCount = books.get(position).getBookRatingCount();
+                String ratingAverage = books.get(position).getBookRatingAverage();
+                String ratingCount = books.get(position).getBookRatingCount();
 
                 Intent goToDescriptionActivity = new Intent(v.getContext(), ActivityBookDetail.class);
                 goToDescriptionActivity.putExtra("title", title);

@@ -129,5 +129,16 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
+        switch (loader.getId()) {
+            case 0:
+                recyclerViewGenre1.setAdapter(null);
+                break;
+            case 1:
+                recyclerViewGenre2.setAdapter(null);
+                break;
+            case 2:
+                recyclerViewGenre3.setAdapter(null);
+                break;
+        }
     }
 }

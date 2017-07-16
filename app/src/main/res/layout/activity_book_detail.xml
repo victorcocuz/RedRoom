@@ -12,35 +12,43 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/container_xlarge">
 
-            <ImageView
-                android:id="@+id/book_detail_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/cardview_dark_background" />
+        <ImageView
+            android:id="@+id/book_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/container_xlarge"
+            android:background="@color/cardview_dark_background" />
+
+        <RatingBar
+            android:id="@+id/book_detail_rating_bar"
+            style="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="3.5" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="@dimen/margin_large"
-                android:layout_marginRight="@dimen/margin_large"
-                android:background="@drawable/rating_average"
-                android:gravity="center"
+                android:id="@+id/book_detail_rating_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 tools:text="4.5" />
 
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/container_small"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+            <ImageView
+                android:layout_width="@dimen/container_xsmall"
+                android:layout_height="@dimen/container_xsmall"
+                android:background="@drawable/ic_person_black_24dp" />
 
-        </RelativeLayout>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

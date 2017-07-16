@@ -103,6 +103,16 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
-
+        switch (loader.getId()) {
+            case 0:
+                recyclerViewUser1.setAdapter(null);
+                break;
+            case 1:
+                recyclerViewUser2.setAdapter(null);
+                break;
+            case 2:
+                recyclerViewUser3.setAdapter(null);
+                break;
+        }
     }
 }

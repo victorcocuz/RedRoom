@@ -23,7 +23,8 @@
 
     <style name="RatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/rating_stars</item>
-
+        <item name="android:minHeight">@dimen/container_small</item>
+        <item name="android:maxHeight">@dimen/container_small</item>
     </style>
 
 </resources>

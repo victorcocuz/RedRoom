@@ -17,11 +17,11 @@ public class Book {
     private String webReaderLink;
     private String textSnippet;
     private String description;
-    private double ratingAverage;
-    private int ratingCount;
+    private String ratingAverage;
+    private String ratingCount;
 
 
-    public Book(String title, String author, Bitmap image, String previewLink, String webReaderLink, String textSnippet, String description, double ratingAverage, int ratingCount) {
+    public Book(String title, String author, Bitmap image, String previewLink, String webReaderLink, String textSnippet, String description, String ratingAverage, String ratingCount) {
         this.title = title;
         this.author = author;
         this.image = image;
@@ -52,7 +52,7 @@ public class Book {
 
     public String getBookDescription() {return description;}
 
-    public double getBookRatingAverage() {return ratingAverage;}
+    public String getBookRatingAverage() {return ratingAverage;}
 
-    public int getBookRatingCount () {return ratingCount;}
+    public String getBookRatingCount () {return ratingCount;}
 }

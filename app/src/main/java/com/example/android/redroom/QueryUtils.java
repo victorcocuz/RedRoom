@@ -182,15 +182,15 @@ public class QueryUtils {
                 }
 
                 //get ratingAverage
-                double ratingAverage = 0d;
+                String ratingAverage = null;
                 if (jsonVolumeInfo.has("averageRating")) {
-                    ratingAverage = jsonVolumeInfo.getDouble("averageRating");
+                    ratingAverage = jsonVolumeInfo.getString("averageRating");
                 }
 
                 //get ratingCount
-                int ratingCount = 0;
+                String ratingCount = null;
                 if (jsonVolumeInfo.has("ratingsCount")) {
-                    ratingCount = jsonVolumeInfo.getInt("ratingsCount");
+                    ratingCount = jsonVolumeInfo.getString("ratingsCount");
                 }
 
                 books.add(new Book(title, author, bmp, previewLink, webReaderLink, textSnippet, description, ratingAverage, ratingCount));
