@@ -10,4 +10,5 @@
     <string name="search">Search</string>
     <string name="book_no_text_snippet">No info available</string>
     <string name="book_no_description">No description available</string>
+    <string name="book_description">Read more</string>
 </resources>

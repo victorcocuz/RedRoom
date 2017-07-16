@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/general_menu"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menu_container"
+        android:layout_height="@dimen/container_medium"
         android:background="@color/colorAccent"
         android:orientation="horizontal">
 

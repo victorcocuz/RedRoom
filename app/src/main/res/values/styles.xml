@@ -11,7 +11,7 @@
     <style name="MenuImages">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">@dimen/menu_image</item>
+        <item name="android:layout_height">@dimen/container_small</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
     </style>
@@ -19,6 +19,11 @@
     <style name="DescriptionText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="RatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_stars</item>
+
     </style>
 
 </resources>

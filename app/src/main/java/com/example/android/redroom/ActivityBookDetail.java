@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +15,7 @@ public class ActivityBookDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
 
         TextView titleView = (TextView) findViewById(R.id.book_detail_title);
         titleView.setText(extras.getString("title"));
@@ -37,8 +38,15 @@ public class ActivityBookDetail extends AppCompatActivity {
 
         //Set description
         TextView descriptionView = (TextView) findViewById(R.id.book_detail_description);
-        if (extras.getString("textDescription") != null) {
-            descriptionView.setText(extras.getString("description"));
+        if (extras.getString("description") != null) {
+            descriptionView.setText(R.string.book_description);
+            descriptionView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView descriptionView = (TextView) findViewById(R.id.book_detail_description);
+                    descriptionView.setText(extras.getString("description"));
+                }
+            });
         } else {
             descriptionView.setText(R.string.book_no_description);
         }

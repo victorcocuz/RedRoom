@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="menu_image">32dp</dimen>
-    <dimen name="menu_container">48dp</dimen>
-    <dimen name="large_container">60dp</dimen>
-    <dimen name="xlarge_container">200dp</dimen>
+    <dimen name="container_small">32dp</dimen>
+    <dimen name="container_medium">48dp</dimen>
+    <dimen name="container_large">60dp</dimen>
+    <dimen name="container_xlarge">200dp</dimen>
+
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_large">16dp</dimen>
+
     <dimen name="text_xsmall">14sp</dimen>
     <dimen name="text_small">16sp</dimen>
     <dimen name="text_medium">18sp</dimen>
