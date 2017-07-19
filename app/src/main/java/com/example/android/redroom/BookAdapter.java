@@ -69,6 +69,11 @@ class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         return books.size();
     }
 
+    public void AddAll(ArrayList<Book> books) {
+        this.books = books;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView cardTitleView;
@@ -81,11 +86,5 @@ class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             cardAuthorView = (TextView) itemView.findViewById(R.id.book_card_author);
             cardImageView = (ImageView) itemView.findViewById(R.id.book_card_image);
         }
-    }
-
-    public void AddAll (ArrayList<Book> books) {
-        BookAdapter bookAdapter = new BookAdapter(books);
-        books.setAdapter(bookAdapter);
-        notifyDataSetChanged();
     }
 }

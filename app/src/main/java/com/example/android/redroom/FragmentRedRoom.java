@@ -87,11 +87,11 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
+//        bookAdapter.AddAll(data);
         switch (loader.getId()) {
             case 0:
-//                    recyclerViewUser1.invalidate();
-//                    recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                bookAdapter.addAll(data);
+                    recyclerViewUser1.invalidate();
+                    recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 break;
             case 1:
 //                recyclerViewUser2.invalidate();
