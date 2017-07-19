@@ -42,6 +42,7 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
     private RecyclerView recyclerViewGenre3;
     private EditText searchView;
     private String finalURL;
+    private RecyclerView.Adapter bookAdapter;
 
     public FragmentBrowse() {
     }
@@ -51,7 +52,7 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_browse, container, false);
 
-        RecyclerView.Adapter bookAdapter = new BookAdapter(new ArrayList<Book>());
+        bookAdapter = new BookAdapter(new ArrayList<Book>());
 
         //Recycler View Genre 1
         recyclerViewGenre1 = (RecyclerView) rootView.findViewById(R.id.recycler_view_genre1);

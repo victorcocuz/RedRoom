@@ -82,4 +82,10 @@ class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             cardImageView = (ImageView) itemView.findViewById(R.id.book_card_image);
         }
     }
+
+    public void AddAll (ArrayList<Book> books) {
+        BookAdapter bookAdapter = new BookAdapter(books);
+        books.setAdapter(bookAdapter);
+        notifyDataSetChanged();
+    }
 }

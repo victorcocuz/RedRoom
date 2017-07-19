@@ -32,6 +32,7 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
     private RecyclerView recyclerViewUser1;
     private RecyclerView recyclerViewUser2;
     private RecyclerView recyclerViewUser3;
+    RecyclerView.Adapter bookAdapter;
 
     public FragmentRedRoom() {
     }
@@ -41,7 +42,7 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_red_room, container, false);
 
-        RecyclerView.Adapter bookAdapter = new BookAdapter(new ArrayList<Book>());
+        bookAdapter = new BookAdapter(new ArrayList<Book>());
 
         //RecyclerView User 1
         recyclerViewUser1 = (RecyclerView) rootView.findViewById(R.id.recycler_view_red_room1);
@@ -88,16 +89,17 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
         switch (loader.getId()) {
             case 0:
-                recyclerViewUser1.invalidate();
-                recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                    recyclerViewUser1.invalidate();
+//                    recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
+                bookAdapter.addAll(data);
                 break;
             case 1:
-                recyclerViewUser2.invalidate();
-                recyclerViewUser2.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                recyclerViewUser2.invalidate();
+//                recyclerViewUser2.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 break;
             case 2:
-                recyclerViewUser3.invalidate();
-                recyclerViewUser3.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                recyclerViewUser3.invalidate();
+//                recyclerViewUser3.setAdapter(new BookAdapter(new ArrayList<>(data)));
                 break;
         }
     }
