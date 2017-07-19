@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by victo on 7/2/2017.
@@ -17,10 +18,9 @@ import java.util.ArrayList;
 
 class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
-    private ArrayList<Book> books;
+    private List<Book> books;
 
-    public BookAdapter(ArrayList<Book> books) {
-        this.books = books;
+    public BookAdapter() {
     }
 
     @Override
@@ -66,10 +66,13 @@ class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return books.size();
+        if (books != null) {
+            return books.size();
+        }
+        return 0;
     }
 
-    public void AddAll(ArrayList<Book> books) {
+    public void AddAll(List<Book> books) {
         this.books = books;
         notifyDataSetChanged();
     }

@@ -25,7 +25,7 @@ public class FragmentCollection extends Fragment implements LoaderManager.Loader
     private static final String BOOKS_REQUEST_COLLECTION_URL = "https://www.googleapis.com/books/v1/volumes?q=harari&maxResults=10";
     private static final int BOOKS_REQUEST_COLLCTION_ID = 0;
     private RecyclerView recyclerViewCollection;
-    RecyclerView.Adapter bookAdapter;
+    BookAdapter bookAdapter;
 
     public FragmentCollection() {
     }
@@ -35,7 +35,7 @@ public class FragmentCollection extends Fragment implements LoaderManager.Loader
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_collection, container, false);
 
-        bookAdapter = new BookAdapter(new ArrayList<Book>());
+        bookAdapter = new BookAdapter();
         RecyclerView.LayoutManager layoutManagerCollection = new GridLayoutManager(getActivity(), 2);
 
         recyclerViewCollection = (RecyclerView) rootView.findViewById(R.id.recycler_view_collection);
@@ -55,7 +55,8 @@ public class FragmentCollection extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
-        recyclerViewCollection.setAdapter(new BookAdapter(new ArrayList<>(data)));
+        bookAdapter.AddAll(data);
+//        recyclerViewCollection.setAdapter(new BookAdapter(new ArrayList<>(data)));
     }
 
     @Override

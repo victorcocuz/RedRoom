@@ -32,7 +32,7 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
     private RecyclerView recyclerViewUser1;
     private RecyclerView recyclerViewUser2;
     private RecyclerView recyclerViewUser3;
-    RecyclerView.Adapter bookAdapter;
+    private BookAdapter bookAdapter;
 
     public FragmentRedRoom() {
     }
@@ -42,7 +42,7 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_red_room, container, false);
 
-        bookAdapter = new BookAdapter(new ArrayList<Book>());
+        bookAdapter = new BookAdapter();
 
         //RecyclerView User 1
         recyclerViewUser1 = (RecyclerView) rootView.findViewById(R.id.recycler_view_red_room1);
@@ -87,21 +87,21 @@ public class FragmentRedRoom extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
-//        bookAdapter.AddAll(data);
-        switch (loader.getId()) {
-            case 0:
-                    recyclerViewUser1.invalidate();
-                    recyclerViewUser1.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                break;
-            case 1:
-//                recyclerViewUser2.invalidate();
-//                recyclerViewUser2.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                break;
-            case 2:
-//                recyclerViewUser3.invalidate();
-//                recyclerViewUser3.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                break;
-        }
+        bookAdapter.AddAll(data);
+//        switch (loader.getId()) {
+//            case 0:
+//                    recyclerViewUser1.invalidate();
+//                    recyclerViewUser1.setAdapter(new BookAdapter(new List<>(data)));
+//                break;
+//            case 1:
+////                recyclerViewUser2.invalidate();
+////                recyclerViewUser2.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                break;
+//            case 2:
+////                recyclerViewUser3.invalidate();
+////                recyclerViewUser3.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                break;
+//        }
     }
 
     @Override

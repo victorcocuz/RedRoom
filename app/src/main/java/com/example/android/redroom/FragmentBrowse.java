@@ -42,7 +42,7 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
     private RecyclerView recyclerViewGenre3;
     private EditText searchView;
     private String finalURL;
-    private RecyclerView.Adapter bookAdapter;
+    private BookAdapter bookAdapter;
 
     public FragmentBrowse() {
     }
@@ -52,7 +52,7 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_browse, container, false);
 
-        bookAdapter = new BookAdapter(new ArrayList<Book>());
+        bookAdapter = new BookAdapter();
 
         //Recycler View Genre 1
         recyclerViewGenre1 = (RecyclerView) rootView.findViewById(R.id.recycler_view_genre1);
@@ -83,6 +83,8 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
                     StringBuilder requestUrl = new StringBuilder(BOOKS_REQUEST_BASE_URL);
                     requestUrl.append(searchView.getText().toString());
                     requestUrl.append("&maxResults=10");
+                    Intent goToSearchActivity = new Intent(getActivity(), ActivitySearch.class);
+
                     finalURL = requestUrl.toString();
                     Toast.makeText(getActivity(), finalURL, Toast.LENGTH_SHORT).show();
                 }
@@ -112,20 +114,21 @@ public class FragmentBrowse extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
-        switch (loader.getId()) {
-            case 0:
-                recyclerViewGenre1.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                recyclerViewGenre1.invalidate();
-                break;
-            case 1:
-                recyclerViewGenre2.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                recyclerViewGenre2.invalidate();
-                break;
-            case 2:
-                recyclerViewGenre3.setAdapter(new BookAdapter(new ArrayList<>(data)));
-                recyclerViewGenre3.invalidate();
-                break;
-        }
+        bookAdapter.AddAll(data);
+//        switch (loader.getId()) {
+//            case 0:
+//                recyclerViewGenre1.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                recyclerViewGenre1.invalidate();
+//                break;
+//            case 1:
+//                recyclerViewGenre2.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                recyclerViewGenre2.invalidate();
+//                break;
+//            case 2:
+//                recyclerViewGenre3.setAdapter(new BookAdapter(new ArrayList<>(data)));
+//                recyclerViewGenre3.invalidate();
+//                break;
+//        }
     }
 
     @Override
