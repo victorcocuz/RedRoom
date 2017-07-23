@@ -7,20 +7,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
 public class ActivitySearch extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>> {
 
-    private BookAdapter bookAdapter;
+    private final static int CARD_TYPE = 1;
     private static final int SEARCH_ACTIVITY_ID = 0;
     private String requestURL;
-    private final static int CARD_TYPE = 0;
+    private BookAdapter bookAdapter;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        bookAdapter = new BookAdapter(CARD_TYPE);
+        progressBar = (ProgressBar) findViewById(R.id.loading_spinner_search);
 
         requestURL = getIntent().getExtras().getString("requestURL");
 
@@ -30,7 +36,6 @@ public class ActivitySearch extends AppCompatActivity implements LoaderManager.L
         searchToolbar.runToolbar();
 
         //Set up recycler view;
-        bookAdapter = new BookAdapter(CARD_TYPE);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_search);
         recyclerView.setHasFixedSize(true);
@@ -48,6 +53,7 @@ public class ActivitySearch extends AppCompatActivity implements LoaderManager.L
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> data) {
         bookAdapter.AddAll(data);
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
