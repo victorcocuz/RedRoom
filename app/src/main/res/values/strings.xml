@@ -1,14 +1,34 @@
 <resources>
     <string name="app_name">RedRoom</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_internet_connection">No internet connection</string>
     <string name="fragment_red_room">RedRoom</string>
     <string name="fragment_browse">Browse</string>
-    <string name="fragment_collection">Collection</string>
-    <string name="fragment_borrow">Borrow</string>
+    <string name="fragment_collection">My Collection</string>
+    <string name="fragment_borrow">Borrowed Books</string>
+    <string name="book_detail">Book Details</string>
+    <string name="book_detail_borrow">Borrow</string>
+    <string name="book_detail_buy">Buy</string>
+
+    <string name="red_room_1">Gina\'s shelf</string>
+    <string name="red_room_2">Michael\'s shelf</string>
+    <string name="red_room_3">Tony\'s shelf</string>
+
+    <string name="browse_1">Fantasy</string>
+    <string name="browse_2">Biography</string>
+    <string name="browse_3">Thriller</string>
+
     <string name="search">Search</string>
+    <string name="person">Person</string>
+
+    <string name="book_image">Book Image</string>
+    <string name="book_preview">Read a preview</string>
     <string name="book_no_text_snippet">No info available</string>
     <string name="book_no_description">No description available</string>
     <string name="book_description">Read more</string>
+
+    <string name="book_buy">Buy this book for $4.99</string>
+    <string name="borrow_1">Borrow for 1 day for $0.99</string>
+    <string name="borrow_2">Borrow for 1 week for $1.49</string>
+    <string name="borrow_3">Borrow for 1 month for $1.99</string>
+
 </resources>

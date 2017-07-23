@@ -1,13 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
+    <!--Main Activity-->
     <style name="MenuImages">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
@@ -16,15 +18,86 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="DescriptionText">
+    <style name="RecyclerViewLinearLayout">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">@dimen/container_medium</item>
+        <item name="android:padding">@dimen/margin_small</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">@dimen/margin_large</item>
+        <item name="android:layout_marginBottom">@dimen/margin_medium</item>
     </style>
 
+    <style name="RecyclerViewTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="RecyclerViewImageView">
+        <item name="android:layout_width">@dimen/container_small</item>
+        <item name="android:layout_height">@dimen/container_small</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/margin_small</item>
+        <item name="android:layout_marginRight">@dimen/margin_medium</item>
+        <item name="android:src">@drawable/ic_person_dark_24px</item>
+    </style>
+
+    <!--Book detail activity-->
     <style name="RatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/rating_stars</item>
         <item name="android:minHeight">@dimen/container_small</item>
         <item name="android:maxHeight">@dimen/container_small</item>
+    </style>
+
+    <style name="BookDetailBuyBorrow">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/container_medium</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:background">@drawable/btn_buy_borrow_book_detail</item>
+        <item name="android:elevation">@dimen/margin_medium</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="BookDetailTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_xlarge</item>
+    </style>
+
+    <style name="BookDetailAuthor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="BookDetailText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_xsmall</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_small</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <style name="BookDetailDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_small</item>
+        <item name="android:textColor">@color/redRoomHighlight</item>
+    </style>
+
+    <!--Book buy activities-->
+    <style name="BuyBorrowText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/container_medium</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/margin_large</item>
+        <item name="android:background">@drawable/btn_buy_borrow</item>
     </style>
 
 </resources>

@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
     tools:context="com.example.android.redroom.FragmentBrowse">
 
     <LinearLayout
@@ -10,30 +9,92 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_large"
-            android:gravity="center"
-            android:hint="@string/search"
-            android:imeOptions="actionDone"
-            android:inputType="text" />
+        <LinearLayout style="@style/RecyclerViewLinearLayout">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_genre1"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            <ImageView
+                style="@style/RecyclerViewImageView"
+                android:contentDescription="@string/browse_1" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_genre2"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            <TextView
+                style="@style/RecyclerViewTextView"
+                android:text="@string/browse_1" />
+        </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_genre3"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_genre1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner_browse_1"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout style="@style/RecyclerViewLinearLayout">
+
+            <ImageView
+                style="@style/RecyclerViewImageView"
+                android:contentDescription="@string/browse_2" />
+
+            <TextView
+                style="@style/RecyclerViewTextView"
+                android:text="@string/browse_2" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_genre2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner_browse_2"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout style="@style/RecyclerViewLinearLayout">
+
+            <ImageView
+                style="@style/RecyclerViewImageView"
+                android:contentDescription="@string/browse_3" />
+
+            <TextView
+                style="@style/RecyclerViewTextView"
+                android:text="@string/browse_3" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_genre3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner_browse_3"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

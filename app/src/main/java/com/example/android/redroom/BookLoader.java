@@ -26,7 +26,7 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
 
     @Override
     public List<Book> loadInBackground() {
-        List<Book> volumes = QueryUtils.extractVolumes(url);
-        return volumes;
+        List<Book> books = QueryUtils.extractBooks(url);
+        return books;
     }
 }

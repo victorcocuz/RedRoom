@@ -2,8 +2,6 @@ package com.example.android.redroom;
 
 import android.graphics.Bitmap;
 
-import static android.R.attr.rating;
-
 /**
  * Created by victo on 7/2/2017.
  */
@@ -19,7 +17,6 @@ public class Book {
     private String description;
     private String ratingAverage;
     private String ratingCount;
-
 
     public Book(String title, String author, Bitmap image, String previewLink, String webReaderLink, String textSnippet, String description, String ratingAverage, String ratingCount) {
         this.title = title;

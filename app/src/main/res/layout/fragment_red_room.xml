@@ -9,20 +9,86 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_red_room1"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+        <LinearLayout style="@style/RecyclerViewLinearLayout">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_red_room2"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            <ImageView style="@style/RecyclerViewImageView" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_red_room3"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            <TextView
+                style="@style/RecyclerViewTextView"
+                android:text="@string/red_room_1" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_red_room1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner_red_room_1"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout style="@style/RecyclerViewLinearLayout">
+
+            <ImageView style="@style/RecyclerViewImageView" />
+
+            <TextView
+                style="@style/RecyclerViewTextView"
+                android:text="@string/red_room_2" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_red_room2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner_red_room_2"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout style="@style/RecyclerViewLinearLayout">
+
+            <ImageView style="@style/RecyclerViewImageView" />
+
+            <TextView
+                style="@style/RecyclerViewTextView"
+                android:text="@string/red_room_3" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_red_room3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/loading_spinner_red_room_3"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 </ScrollView>

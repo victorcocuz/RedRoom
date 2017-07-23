@@ -18,10 +18,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.R.attr.author;
-import static android.R.attr.rating;
 
 /**
  * Created by victo on 7/4/2017.
@@ -31,7 +27,7 @@ public class QueryUtils {
 
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    public static ArrayList<Book> extractVolumes(String requestUrl) {
+    public static ArrayList<Book> extractBooks(String requestUrl) {
         URL url = getUrl(requestUrl);
         String jsonResponse = null;
 
@@ -114,6 +110,7 @@ public class QueryUtils {
 
         ArrayList<Book> books = new ArrayList<>();
 
+        //Get JSON
         try {
             JSONObject jsonBook = new JSONObject(jsonResponse);
             JSONArray jsonItem = jsonBook.getJSONArray("items");
@@ -144,7 +141,7 @@ public class QueryUtils {
 
                     //Get image
                     JSONObject jsonImageLinks = jsonVolumeInfo.getJSONObject("imageLinks");
-                    String image = jsonImageLinks.getString("smallThumbnail");
+                    String image = jsonImageLinks.getString("thumbnail");
                     URL imageUrl = getUrl(image);
                     bmp = BitmapFactory.decodeStream(imageUrl.openConnection().getInputStream());
                 } else {
@@ -159,7 +156,7 @@ public class QueryUtils {
 
                 //Get webReaderLink
                 String webReaderLink = null;
-                if (jsonVolumeInfo.has("accessInfo")) {
+                if (jsonCurrent.has("accessInfo")) {
                     JSONObject jsonAccessInfo = jsonCurrent.getJSONObject("accessInfo");
                     if (jsonAccessInfo.has("webReaderLink")) {
                         webReaderLink = jsonAccessInfo.getString("webReaderLink");

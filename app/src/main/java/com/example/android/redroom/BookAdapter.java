@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,14 +19,24 @@ class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     private List<Book> books;
 
-    public BookAdapter() {
+    private int cardType;
+
+    public BookAdapter(int cardType) {
+        this.cardType = cardType;
     }
 
     @Override
     public BookAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_card, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        View v;
+        switch (cardType) {
+            case 0:
+                v = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_card_horizontal, parent, false);
+                return new ViewHolder(v);
+            case 1:
+                v = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_card_vertical, parent, false);
+                return new ViewHolder(v);
+        }
+        return null;
     }
 
     @Override
